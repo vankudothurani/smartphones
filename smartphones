@@ -1,0 +1,25 @@
+{
+  "smartphones": [
+    {
+      "name": "Smartphone A",
+      "brand": "Brand A",
+      "price": "$599",
+      "features": ["6.5-inch screen", "128GB storage", "4000mAh battery", "5G support"],
+      "image": "https://example.com/smartphone_a.jpg"
+    },
+    {
+      "name": "Smartphone B",
+      "brand": "Brand B",
+      "price": "$799",
+      "features": ["6.8-inch screen", "256GB storage", "5000mAh battery", "5G support"],
+      "image": "https://example.com/smartphone_b.jpg"
+    },
+    {
+      "name": "Smartphone C",
+      "brand": "Brand C",
+      "price": "$999",
+      "features": ["7.0-inch screen", "512GB storage", "6000mAh battery", "5G support"],
+      "image": "https://example.com/smartphone_c.jpg"
+    }
+  ]
+}

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smartphones Display</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f0f0;
+    }
+    .container {
+      width: 80%;
+      margin: 0 auto;
+    }
+    .smartphone {
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin: 20px 0;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .smartphone img {
+      width: 80%;
+      max-width: 300px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+    .smartphone h2 {
+      font-size: 24px;
+      margin: 0;
+    }
+    .smartphone p {
+      font-size: 16px;
+      color: #555;
+      margin: 5px 0;
+    }
+    .features {
+      list-style-type: none;
+      padding: 0;
+    }
+    .features li {
+      margin: 5px 0;
+      color: #333;
+    }
+    .price {
+      font-size: 18px;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Smartphone Collection</h1>
+    <div id="smartphone-list"></div>
+  </div>
+
+  <script>
+    const jsonData = {
+      "smartphones": [
+        {
+          "name": "New Galaxy S24 FE",
+          "brand":"brand A",
+          "price": "$599",
+          "features": ["6.5-inch screen", "128GB storage", "4000mAh battery", "5G support"],
+          "image": "in-feature--nbsp-543530333.avif"
+        },
+        {
+          "name": "Galaxy A35 5G",
+          "brand":"brand B",
+          "price": "$799",
+          "features": ["6.8-inch screen", "256GB storage", "5000mAh battery", "5G support"],
+          "image":"71MBDTglV4L._SL1500_ (1).jpg"
+        },
+        {
+          "name": "Galaxy S24 Ultra",
+           "brand":"brand c",
+          "price": "$999",
+          "features": ["7.0-inch screen", "512GB storage", "6000mAh battery", "5G support"],
+          "image": "61S5lUy3lpL._SX679_.jpg"
+        }
+      ]
+    };
+
+    // Function to create HTML for each smartphone
+    function displaySmartphones(data) {
+      const smartphoneListDiv = document.getElementById('smartphone-list');
+      data.smartphones.forEach(smartphone => {
+        const smartphoneDiv = document.createElement('div');
+        smartphoneDiv.classList.add('smartphone');
+
+        const smartphoneImage = document.createElement('img');
+        smartphoneImage.src = smartphone.image;
+        smartphoneDiv.appendChild(smartphoneImage);
+
+        const smartphoneName = document.createElement('h2');
+        smartphoneName.textContent = `${smartphone.name} (${smartphone.brand})`;
+        smartphoneDiv.appendChild(smartphoneName);
+
+        const smartphoneFeatures = document.createElement('ul');
+        smartphoneFeatures.classList.add('features');
+        smartphone.features.forEach(feature => {
+          const featureItem = document.createElement('li');
+          featureItem.textContent = feature;
+          smartphoneFeatures.appendChild(featureItem);
+        });
+        smartphoneDiv.appendChild(smartphoneFeatures);
+
+        const smartphonePrice = document.createElement('p');
+        smartphonePrice.classList.add('price');
+        smartphonePrice.textContent = `Price: ${smartphone.price}`;
+        smartphoneDiv.appendChild(smartphonePrice);
+
+        smartphoneListDiv.appendChild(smartphoneDiv);
+      });
+    }
+
+    // Call function to display smartphones
+    displaySmartphones(jsonData);
+  </script>
+</body>
+</html>
